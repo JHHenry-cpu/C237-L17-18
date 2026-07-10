@@ -29,22 +29,39 @@
 </nav>
 
 <div class="container">
+
     <br>
+
     <div class="text-center">
         <h2>Student Details</h2>
     </div>
+
     <br>
 
     <% if (student) { %>
 
-        <p><b>Name:</b><br> <%= student.name %></p>
+        <p>
+            <strong>Name:</strong><br>
+            <%= student.name %>
+        </p>
 
-        <p><b>Date of Birth:</b><br> <%= student.dob %></p>
+        <p>
+            <strong>Date of Birth:</strong><br>
+            <%= student.dob.toLocaleDateString('en-US', {
+                month: 'short',
+                day: '2-digit',
+                year: 'numeric'
+            }) %>
+        </p>
 
-        <p><b>Contact:</b><br> <%= student.contact %></p>
+        <p>
+            <strong>Contact:</strong><br>
+            <%= student.contact %>
+        </p>
 
-        <p><b>Image:</b><br>
-            <img src="<%= student.image %>" width="200">
+        <p>
+            <strong>Image:</strong><br>
+            <img src="/images/<%= student.image %>" width="200">
         </p>
 
     <% } else { %>
@@ -52,6 +69,8 @@
         <p>No student found.</p>
 
     <% } %>
+
+    <br>
 
     <a href="/">Back</a>
 
